@@ -35,7 +35,25 @@ namespace dogagyak2.Controllers
 
             return blogok;
         }
-        
+
+        [HttpGet("{azon}")]
+        public Blog GetBlog(Guid azon) 
+        {
+            conn.Connection.Open();
+            string sql = $"SELECT * FROM `blogs` WHERE Id = '{azon}'";
+            MySqlCommand cmd = new MySqlCommand( sql, conn.Connection );
+            MySqlDataReader reader = cmd.ExecuteReader();
+            reader.Read();
+            var result = new Blog
+            {
+                Id = reader.GetGuid(0),
+                Title = reader.GetString(1),
+                Description = reader.GetString(2),
+                CreatedTime = reader.GetDateTime(3),
+                LastUpdated = reader.GetDateTime(4),
+            };
+            return result;
+        }
         
     }
 }
