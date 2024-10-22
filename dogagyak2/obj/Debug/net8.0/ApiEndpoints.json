@@ -52,6 +52,42 @@
   },
   {
     "ContainingType": "dogagyak2.Controllers.BlogController",
+    "Method": "Put",
+    "RelativePath": "api/Blog",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Id",
+        "Type": "System.Guid",
+        "IsRequired": false
+      },
+      {
+        "Name": "NewTitle",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "NewDescription",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "dogagyak2.Model.Blog",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "dogagyak2.Controllers.BlogController",
     "Method": "GetBlog",
     "RelativePath": "api/Blog/{azon}",
     "HttpMethod": "GET",

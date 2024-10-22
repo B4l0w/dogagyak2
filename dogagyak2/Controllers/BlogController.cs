@@ -78,6 +78,27 @@ namespace dogagyak2.Controllers
             };
             return result;
         }
-        
+        [HttpPut]
+        public Blog Put(Guid Id, string NewTitle, string NewDescription)
+        {
+            conn.Connection.Open();
+            DateTime LastUpdated = DateTime.Now;
+            DateTime CreatedTime = DateTime.Now;
+            string sql = $"UPDATE `blogs` SET `Title`='{NewTitle}',`Description`='{NewDescription}',`LastUpdated`='{LastUpdated}' WHERE Id = '{Id}'";
+            MySqlCommand cmd = new MySqlCommand (sql, conn.Connection );
+            cmd.ExecuteNonQuery();
+            conn.Connection.Close();
+
+            var result = new Blog
+            {
+                Id = Id,
+                Title = NewTitle,
+                Description = NewDescription,
+                CreatedTime = DateTime.Now,
+                LastUpdated = DateTime.Now,
+            };
+
+            return result;
+        }
     }
 }
