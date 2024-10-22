@@ -54,6 +54,30 @@ namespace dogagyak2.Controllers
             };
             return result;
         }
+
+        [HttpPost]
+        public Blog Post(string Title, string Description) 
+        {
+            Guid Id = Guid.NewGuid();
+            conn.Connection.Open();
+            DateTime CreatedTime = DateTime.Now;
+            DateTime LastUpdated = DateTime.Now;
+            string sql = $"INSERT INTO `blogs`(`Id`, `Title`, `Description`, `CreatedTime`, `LastUpdated`) VALUES ('{Id}','{Title}','{Description}','{CreatedTime}','{LastUpdated}')";
+            MySqlCommand cmd = new MySqlCommand ( sql, conn.Connection );
+            cmd.ExecuteNonQuery();
+
+            conn.Connection.Close();
+
+            var result = new Blog
+            {
+                Id = Id,
+                Title = Title,
+                Description = Description,
+                CreatedTime = DateTime.Now,
+                LastUpdated = DateTime.Now
+            };
+            return result;
+        }
         
     }
 }
