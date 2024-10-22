@@ -88,6 +88,28 @@
   },
   {
     "ContainingType": "dogagyak2.Controllers.BlogController",
+    "Method": "Delete",
+    "RelativePath": "api/Blog",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Id",
+        "Type": "System.Guid",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "dogagyak2.Controllers.BlogController",
     "Method": "GetBlog",
     "RelativePath": "api/Blog/{azon}",
     "HttpMethod": "GET",

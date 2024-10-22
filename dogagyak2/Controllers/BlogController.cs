@@ -100,5 +100,14 @@ namespace dogagyak2.Controllers
 
             return result;
         }
+
+        [HttpDelete]
+        public void Delete(Guid Id) 
+        {
+            conn.Connection.Open();
+            string sql = $"DELETE FROM `blogs` WHERE Id = '{Id}'";
+            MySqlCommand cmd = new MySqlCommand (sql , conn.Connection );
+            cmd.ExecuteNonQuery();
+        }
     }
 }
